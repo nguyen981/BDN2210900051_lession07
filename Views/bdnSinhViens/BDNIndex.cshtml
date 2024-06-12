@@ -1,0 +1,69 @@
+﻿@model IEnumerable<BDNbaikiemtragiuaki.Models.bdnSinhVien>
+
+@{
+    ViewBag.Title = "BDNIndex";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "BDNCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BdnHoSV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BdnTenSV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BdnNgaySinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BdnPhai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BdnPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BdnEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bdnKhoa.BdnTenKH)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BdnHoSV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BdnTenSV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BdnNgaySinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BdnPhai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BdnPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BdnEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bdnKhoa.BdnTenKH)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "BDNEdit", new { id=item.BdnMaSV }) |
+            @Html.ActionLink("Details", "BDNDetails", new { id=item.BdnMaSV }) |
+            @Html.ActionLink("Delete", "BDNDelete", new { id=item.BdnMaSV })
+        </td>
+    </tr>
+}
+
+</table>

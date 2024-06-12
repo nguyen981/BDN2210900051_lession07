@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BDNK22CNT3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="bdnKhoa">
+    <Key>
+      <PropertyRef Name="BdnMaKH" />
+    </Key>
+    <Property Name="BdnMaKH" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="BdnTenKH" Type="nchar" MaxLength="50" />
+    <Property Name="BdnTrangThai" Type="bit" />
+  </EntityType>
+  <EntityType Name="bdnSinhVien">
+    <Key>
+      <PropertyRef Name="BdnMaSV" />
+    </Key>
+    <Property Name="BdnMaSV" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BdnHoSV" Type="nvarchar" MaxLength="50" />
+    <Property Name="BdnTenSV" Type="nvarchar" MaxLength="50" />
+    <Property Name="BdnNgaySinh" Type="date" />
+    <Property Name="BdnPhai" Type="bit" />
+    <Property Name="BdnPhone" Type="nchar" MaxLength="10" />
+    <Property Name="BdnEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="BdnMaKH" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_bdnSinhVien_bdnKhoa">
+    <End Role="bdnKhoa" Type="Self.bdnKhoa" Multiplicity="0..1" />
+    <End Role="bdnSinhVien" Type="Self.bdnSinhVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bdnKhoa">
+        <PropertyRef Name="BdnMaKH" />
+      </Principal>
+      <Dependent Role="bdnSinhVien">
+        <PropertyRef Name="BdnMaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BDNK22CNT3ModelStoreContainer">
+    <EntitySet Name="bdnKhoa" EntityType="Self.bdnKhoa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bdnSinhVien" EntityType="Self.bdnSinhVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_bdnSinhVien_bdnKhoa" Association="Self.FK_bdnSinhVien_bdnKhoa">
+      <End Role="bdnKhoa" EntitySet="bdnKhoa" />
+      <End Role="bdnSinhVien" EntitySet="bdnSinhVien" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

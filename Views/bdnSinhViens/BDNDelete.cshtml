@@ -1,0 +1,80 @@
+﻿@model BDNbaikiemtragiuaki.Models.bdnSinhVien
+
+@{
+    ViewBag.Title = "BDNDelete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>bdnSinhVien</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BdnHoSV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BdnHoSV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BdnTenSV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BdnTenSV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BdnNgaySinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BdnNgaySinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BdnPhai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BdnPhai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BdnPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BdnPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BdnEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BdnEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bdnKhoa.BdnTenKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bdnKhoa.BdnTenKH)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "BDNIndex")
+        </div>
+    }
+</div>
